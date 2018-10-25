@@ -1,0 +1,8 @@
+[package]
+name = "gbatest"
+version = "0.1.0"
+authors = ["Lokathor <zefria@gmail.com>", "Ketsuban"]
+edition = "2018"
+license = "0BSD"
+
+[dependencies]
