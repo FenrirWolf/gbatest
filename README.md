@@ -31,9 +31,12 @@ do this stuff.
    `crt0.s` file changes. The provided `crt0.o` file in this repo is correct,
    but if you make any changes to `crt0.s` you'll need to rebuild `crt0.o`.
 
-6) Build with `cargo xbuild --target thumbv4-none-eabi`, this generates an ELF
-   binary that some emulators can run directly (which is helpful because it has
-   debug symbols).
+6) Build with `cargo xbuild --target thumbv4-none-eabi.json`
+  * The file extension is significant, and `cargo xbuild` takes it as a flag to
+    compile dependencies with the same sysroot, so you can include crates
+    normally. Well, `no_std` crates that can run inside a GBA at least.
+  * This generates an ELF binary that some emulators can run directly (which is
+    helpful because it has debug symbols).
 
 7) Also you can patch up the output to be a "real" ROM file:
   * `arm-none-eabi-objcopy -O binary target/thumbv4-none-eabi/debug/gbatest output.gba`
